@@ -1,7 +1,5 @@
 {% set name = "mdi" %}
 {% set version = "1.4.34" %}
-{% set hash_type = "sha256" %}
-{% set hash_value = "0128a9f2577f6da7f154b10a3410e9906e062976896cfb5bb7c60bf28e7b3309" %}
 
 package:
   name: {{ name|lower }}
@@ -9,7 +7,7 @@ package:
 
 source:
   url: https://github.com/MolSSI/MDI_Library/archive/v{{ version }}.tar.gz
-  '{{ hash_type }}': '{{ hash_value }}'
+  sha256: 0128a9f2577f6da7f154b10a3410e9906e062976896cfb5bb7c60bf28e7b3309
 
 build:
   number: 0
@@ -52,7 +50,7 @@ test:
     - echo "Prefix value"  # [win]
     - echo %PREFIX%  # [win]
     - echo %LIBRARY_BIN%  # [win]
-    - if not exist %LIBRARY_BIN%\\{{ name }}%SHLIB_EXT% exit 1  # [win]
+    - if not exist "%LIBRARY_BIN%\\{{ name }}%SHLIB_EXT%" exit 1  # [win]
 
 about:
   home: https://github.com/MolSSI/MDI_Library
@@ -63,7 +61,7 @@ about:
   description: |
     MDI is an effort of The MolSSI <https://molssi.org/> to improve
     and standardize the process of interoperating codes within the
-    computational molecular sciences domain.  It supports fast inter-code
+    computational molecular sciences domain. It supports fast inter-code
     communication using both the TCP/IP and MPI methods.
   doc_url: https://molssi.github.io/MDI_Library/html/index.html
   dev_url: https://github.com/MolSSI/MDI_Library
