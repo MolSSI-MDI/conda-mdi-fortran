@@ -22,25 +22,16 @@ requirements:
     - make
     - ninja
     - python {{ python }}
-    {% if target_platform != "win-64" %}
-    - mpich
-    {% else %}
-    - msmpi
-    {% endif %}
+    - mpich  # [unix]
+    - msmpi  # [win]
   host:
     - python {{ python }}
-    {% if target_platform != "win-64" %}
-    - mpich
-    {% else %}
-    - msmpi
-    {% endif %}
+    - mpich  # [unix]
+    - msmpi  # [win]
   run:
     - python {{ python }}
-    {% if target_platform != "win-64" %}
-    - mpich
-    {% else %}
-    - msmpi
-    {% endif %}
+    - mpich  # [unix]
+    - msmpi  # [win]
 
 test:
   commands:
